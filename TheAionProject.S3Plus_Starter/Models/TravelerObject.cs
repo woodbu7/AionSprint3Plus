@@ -11,7 +11,6 @@ namespace TheAionProject
         public override int Id { get; set; }
         public override string Name { get; set; }
         public override string Description { get; set; }
-        public override int SpaceTimeLocationId { get; set; }
         public TravelerObjectType Type { get; set; }
         public string PickUpMessage { get; set; }
         public string PutDownMessage { get; set; }
@@ -19,6 +18,26 @@ namespace TheAionProject
         public bool IsConsumable { get; set; }
         public bool IsVisible { get; set; }
         public int Value { get; set; }
+
+        //
+        // raise event when an object is added or removed from the inventory
+        //
+        private int _spaceTimeLocation;
+        public override int SpaceTimeLocationId
+        {
+            get
+            {
+                return _spaceTimeLocation;
+            }
+            set
+            {
+                _spaceTimeLocation = value;
+                if (value == 0)
+                {
+                    OnObjectAddedToInventory();
+                }
+            }
+        }
 
         public event EventHandler ObjectAddedToInventory;
 
