@@ -53,7 +53,21 @@ namespace TheAionProject
             _gameTraveler = new Traveler();
             _gameUniverse = new Universe();
             _gameConsoleView = new ConsoleView(_gameTraveler, _gameUniverse);
+            TravelerObject travelerObject;
             _playingGame = true;
+
+            //
+            // add the event handler for adding/subtracting to/from inventory
+            //
+            foreach (GameObject gameObject in _gameUniverse.GameObjects)
+            {
+                if (gameObject is TravelerObject)
+                {
+                    travelerObject = gameObject as TravelerObject;
+                    travelerObject.ObjectAddedToInventory += HandleObjectAddedToInventory;
+                }
+            }
+            
 
             Console.CursorVisible = false;
         }
@@ -310,6 +324,48 @@ namespace TheAionProject
             _gameTraveler.ExperiencePoints = 0;
             _gameTraveler.Health = 100;
             _gameTraveler.Lives = 3;
+        }
+
+        private void HandleObjectAddedToInventory(object gameObject, EventArgs e)
+        {
+            if (gameObject.GetType() == typeof(TravelerObject))
+            {
+                TravelerObject travelerObject = gameObject as TravelerObject;
+                switch (travelerObject.Type)
+                {
+                    case TravelerObjectType.Food:
+                        break;
+                    case TravelerObjectType.Medicine:
+                        _gameTraveler.Health += travelerObject.Value;
+
+                        //
+                        // add life if health greater than 100
+                        //
+                        if (_gameTraveler.Health >= 100)
+                        {
+                            _gameTraveler.Health = 100;
+                            _gameTraveler.Lives += 1;
+                        }
+
+                        //
+                        // remove object from game 
+                        //
+                        if (travelerObject.IsConsumable)
+                        {
+                            travelerObject.SpaceTimeLocationId = -1;
+
+                        }
+                        break;
+                    case TravelerObjectType.Weapon:
+                        break;
+                    case TravelerObjectType.Treasure:
+                        break;
+                    case TravelerObjectType.Information:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>

@@ -790,7 +790,15 @@ namespace TheAionProject
         /// <param name="objectAddedToInventory">game object</param>
         public void DisplayConfirmTravelerObjectAddedToInventory(TravelerObject objectAddedToInventory)
         {
-            DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.MainMenu, "");
+            if (objectAddedToInventory.PickUpMessage != null)
+            {
+                DisplayGamePlayScreen("Pick Up Game Object", objectAddedToInventory.PickUpMessage, ActionMenu.MainMenu, "");
+            }
+            else
+            {
+                DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.MainMenu, "");
+            }
+            
         }
 
         /// <summary>
