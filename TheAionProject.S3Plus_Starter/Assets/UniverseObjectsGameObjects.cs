@@ -114,7 +114,95 @@ namespace TheAionProject
                 SpaceTimeLocationId = 2,
                 Description = "A small silver mirror hanging on the wall next to a small window.",
                 IsDeadly = true
-            }
+            },
+
+            new TravelerObject
+            {
+                Id = 7,
+                Name = "Red Med",
+                SpaceTimeLocationId = 1,
+                Description = "A medicine bottle containing red pills. Looks like medicine of some sorts.",
+                PickUpMessage = "The pills are indeed medicine, you take one and immediately start to feel better.",
+                Type = TravelerObjectType.Medicine,
+                Value = 30,
+                CanInventory = true,
+                IsConsumable = true,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 10,
+                Name = "Envelope",
+                SpaceTimeLocationId = 2,
+                Description = "An unopened envelope with no address on it",
+                PickUpMessage = "You open up the envelope and read the message within: \n" +
+                "\tImportant information have been discovered regarding a lethal liquid found in bottles that\n" +
+                "\t look like soda. Do NOT drink it, the liquid is lethal and will kill yo.\n" +
+                "\t I repeat, DO NOT drink it!",
+                Type = TravelerObjectType.Information,
+                Value = 10,
+                CanInventory = true,
+                IsConsumable = false,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 11,
+                Name = "Mysterious bottle",
+                SpaceTimeLocationId = 1,
+                Description = "Not sure what is in this bottle, but it looks refreshing.",
+                PickUpMessage = "You take your chances and drink the mysterious liquid\n "+
+                "you start to feel a bot weird, it turns out the liquid is lethal. You lose a life....",
+                Type = TravelerObjectType.Medicine,
+                Value = 30,
+                CanInventory = true,
+                IsConsumable = true,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 12,
+                Name = "Super Key",
+                SpaceTimeLocationId = 2,
+                Description = "No location will be off limit with this key.",
+                PickUpMessage = "You have the Super Key, travel anywhere you want!",
+                Type = TravelerObjectType.Key,
+                Value = 30,
+                CanInventory = true,
+                IsConsumable = false,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 13,
+                Name = "Band Aids",
+                SpaceTimeLocationId = 3,
+                Description = "A pack of unused band-aids.",
+                PickUpMessage = "You apply the band-ad to your wounds. You have gained health points.",
+                Type = TravelerObjectType.Medicine,
+                Value = 30,
+                CanInventory = true,
+                IsConsumable = true,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 14,
+                Name = "Super Duper Medicine",
+                SpaceTimeLocationId = 4,
+                Description = "This stuff will cure anything.",
+                PickUpMessage = "You drink the medicine and feel super duper afterwards. Must be from your increase in health.",
+                Type = TravelerObjectType.Medicine,
+                Value = 30,
+                CanInventory = true,
+                IsConsumable = true,
+                IsVisible = true
+            },
         };
     }
 }
