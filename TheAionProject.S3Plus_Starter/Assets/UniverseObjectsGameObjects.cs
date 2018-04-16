@@ -122,9 +122,9 @@ namespace TheAionProject
                 Name = "Red Med",
                 SpaceTimeLocationId = 1,
                 Description = "A medicine bottle containing red pills. Looks like medicine of some sorts.",
-                PickUpMessage = "The pills are indeed medicine, you take one and immediately start to feel better.",
-                Type = TravelerObjectType.Medicine,
-                Value = 30,
+                PickUpMessage = "The pills are indeed medicine, but you have bad side effects. You lose health.",
+                Type = TravelerObjectType.BadMedicine,
+                Value = 45,
                 CanInventory = true,
                 IsConsumable = true,
                 IsVisible = true
@@ -137,9 +137,10 @@ namespace TheAionProject
                 SpaceTimeLocationId = 2,
                 Description = "An unopened envelope with no address on it",
                 PickUpMessage = "You open up the envelope and read the message within: \n" +
+                "\n " +
                 "\tImportant information have been discovered regarding a lethal liquid found in bottles that\n" +
-                "\t look like soda. Do NOT drink it, the liquid is lethal and will kill yo.\n" +
-                "\t I repeat, DO NOT drink it!",
+                "\tlook like soda. Do NOT drink it, the liquid is lethal and will kill you.\n" +
+                "\tI repeat, DO NOT drink it!",
                 Type = TravelerObjectType.Information,
                 Value = 10,
                 CanInventory = true,
@@ -154,9 +155,9 @@ namespace TheAionProject
                 SpaceTimeLocationId = 1,
                 Description = "Not sure what is in this bottle, but it looks refreshing.",
                 PickUpMessage = "You take your chances and drink the mysterious liquid\n "+
-                "you start to feel a bot weird, it turns out the liquid is lethal. You lose a life....",
-                Type = TravelerObjectType.Medicine,
-                Value = 30,
+                "you start to feel a bit weird, it turns out the liquid is lethal. You lose a life....",
+                Type = TravelerObjectType.Poison,
+                Value = 0,
                 CanInventory = true,
                 IsConsumable = true,
                 IsVisible = true
@@ -184,7 +185,7 @@ namespace TheAionProject
                 Description = "A pack of unused band-aids.",
                 PickUpMessage = "You apply the band-ad to your wounds. You have gained health points.",
                 Type = TravelerObjectType.Medicine,
-                Value = 30,
+                Value = 5,
                 CanInventory = true,
                 IsConsumable = true,
                 IsVisible = true
@@ -198,7 +199,21 @@ namespace TheAionProject
                 Description = "This stuff will cure anything.",
                 PickUpMessage = "You drink the medicine and feel super duper afterwards. Must be from your increase in health.",
                 Type = TravelerObjectType.Medicine,
-                Value = 30,
+                Value = 100,
+                CanInventory = true,
+                IsConsumable = true,
+                IsVisible = true
+            },
+
+            new TravelerObject
+            {
+                Id = 15,
+                Name = "Blue Med",
+                SpaceTimeLocationId = 2,
+                Description = "A medicine bottle containing blue pills. Looks like medicine of some sorts.",
+                PickUpMessage = "The pills are indeed medicine, but you have bad side effects. You lose health.",
+                Type = TravelerObjectType.BadMedicine,
+                Value = 65,
                 CanInventory = true,
                 IsConsumable = true,
                 IsVisible = true

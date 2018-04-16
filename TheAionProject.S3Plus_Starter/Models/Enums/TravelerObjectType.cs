@@ -10,9 +10,11 @@ namespace TheAionProject
     {
         Food,
         Medicine,
+        BadMedicine,
         Weapon,
         Treasure,
         Information,
-        Key
+        Key,
+        Poison
     }
 }

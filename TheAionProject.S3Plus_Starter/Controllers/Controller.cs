@@ -333,7 +333,8 @@ namespace TheAionProject
                 TravelerObject travelerObject = gameObject as TravelerObject;
                 switch (travelerObject.Type)
                 {
-                    case TravelerObjectType.Food:
+                    case TravelerObjectType.Poison:
+                        _gameTraveler.Lives -= 1;
                         break;
                     case TravelerObjectType.Medicine:
                         _gameTraveler.Health += travelerObject.Value;
@@ -356,9 +357,23 @@ namespace TheAionProject
 
                         }
                         break;
-                    case TravelerObjectType.Weapon:
+                    case TravelerObjectType.Key:
+                        foreach (SpaceTimeLocation location in _gameUniverse.SpaceTimeLocations)
+                        {
+                            if (!location.Accessible)
+                            {
+                                location.Accessible = true;
+                            }
+                        }
                         break;
-                    case TravelerObjectType.Treasure:
+                    case TravelerObjectType.BadMedicine:
+                        _gameTraveler.Health -= travelerObject.Value;
+                        if (_gameTraveler.Health <= 0)
+                        {
+                            _gameTraveler.Lives -= 1;
+                            _gameTraveler.Health = 100;
+                        }
+                        
                         break;
                     case TravelerObjectType.Information:
                         break;

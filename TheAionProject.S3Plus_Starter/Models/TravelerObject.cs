@@ -19,6 +19,7 @@ namespace TheAionProject
         public bool IsVisible { get; set; }
         public int Value { get; set; }
 
+
         //
         // raise event when an object is added or removed from the inventory
         //
